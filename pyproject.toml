@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "UCSC-CSE101-AVL-Trees"
+version = "0.1.0"
+authors = [
+    { name = "Wyatt Avilla" },
+]
+
+requires-python = ">=3.8,<4.0"
+dependencies = [
+    "pytest>=7.4.0,<8.0.0",
+    "pytest-timeout>=2.1.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+timeout = 5
+addopts = [
+    "--verbose",
+    "--tb=short",
+]
