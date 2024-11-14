@@ -1,4 +1,5 @@
 from allwords import allwords
+from allwords_more_range import range_queries
 
 from avl import AVLTree
 
@@ -35,6 +36,26 @@ def test_allwords_basic(avl_tree: AVLTree) -> None:
         ("x", "y", 508),
         ("y", "z", 1144),
     ]
+
+    # Insert all test values into the tree
+    for value in inputs:
+        avl_tree.insert(value)
+
+    # Verify all range queries
+    for start, end, expected_count in range_test_cases:
+        actual_count = avl_tree.count_in_range(start, end)
+        assert actual_count == expected_count, (
+            f"Range query failed for range [{start}, {end}]: "
+            f"expected {expected_count}, but got {actual_count}"
+        )
+
+
+def test_allwords_more_range(avl_tree: AVLTree) -> None:
+    # Huge list of words
+    inputs: list[str] = allwords
+
+    # Test ranges and their expected counts
+    range_test_cases = range_queries
 
     # Insert all test values into the tree
     for value in inputs:
