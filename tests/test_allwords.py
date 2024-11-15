@@ -1,7 +1,6 @@
-from allwords import allwords
-from allwords_more_range import range_queries
-
 from avl import AVLTree
+from tests.allwords import allwords
+from tests.allwords_more_range import range_queries
 
 
 def test_allwords_basic(avl_tree: AVLTree) -> None:
